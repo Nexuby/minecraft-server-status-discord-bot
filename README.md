@@ -147,6 +147,8 @@ Unit/integration tests use controlled SDK and Discord transport fixtures; they d
 
 CI checks Node.js 22/24, types, tests, formatting, production dependency audit and the Docker build. See [testing and evidence](docs/TESTING.md), [contributing](CONTRIBUTING.md) and [security reporting](SECURITY.md).
 
+For an explicitly authorized test channel, `npm run smoke:channel` provides a separate opt-in prepare/verify/cleanup workflow that posts two real cards. See [real channel testing](docs/TESTING.md#opt-in-real-channel-test) before using it; it needs explicit guild/channel IDs and an isolated data directory.
+
 ## License
 
 [MIT](LICENSE) · Nexuby Software Services. Source-code licensing does not replace [MCAPI.TR service terms](https://mcapi.tr/terms) or Discord's terms. Minecraft is a trademark of Mojang/Microsoft; this project is not affiliated with or endorsed by them.

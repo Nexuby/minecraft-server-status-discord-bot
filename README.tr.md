@@ -129,4 +129,6 @@ npm run secrets:check
 
 `npm run smoke`, `.env` ile gerçek Java/Bedrock sorgusu ve Discord bağlantısı yapıp çıkar. Kanallara mesaj göndermez, komut kaydetmez. Aynı botun başka çalışan örneği varken kullanma. Diğer testler token gerektirmez.
 
+Gerçek bir test kanalında iki kart oluşturma, kontrol etme ve temizleme için ayrıca `npm run smoke:channel` vardır. Bu test mesaj gönderir; açıkça seçilen sunucu/kanal kimlikleri ve ayrı test veri klasörü gerekir. Kullanımını [test rehberinde](docs/TESTING.md#opt-in-real-channel-test) bulabilirsin.
+
 [Katkı rehberi](CONTRIBUTING.md) · [Test kapsamı](docs/TESTING.md) · [Güvenlik](SECURITY.md) · [MIT lisansı](LICENSE)

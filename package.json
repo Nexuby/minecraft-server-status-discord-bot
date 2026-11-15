@@ -19,6 +19,7 @@
     "format:check": "prettier --check src tests docs scripts .github README.md README.tr.md CONTRIBUTING.md SECURITY.md *.json *.yml",
     "verify": "npm run check && npm test && npm run build",
     "smoke": "tsx scripts/smoke.ts",
+    "smoke:channel": "tsx scripts/channel-smoke.ts",
     "secrets:check": "node scripts/check-secrets.mjs"
   },
   "repository": {

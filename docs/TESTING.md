@@ -36,3 +36,44 @@ Controlled automated tests exercise equivalent failure paths; they are not a cla
 On 15 November 2026, the actual SDK returned fresh online results for the Java and Bedrock smoke fixtures, and the supplied local bot credential authenticated and reached Discord Gateway Ready. The smoke session disconnected without sending messages. Exact counts are intentionally omitted because they are transient.
 
 See GitHub Actions for independent Node.js 22/24 and Docker build results. A committed workflow alone does not establish a passing remote run.
+
+## Opt-in real channel test
+
+Unlike `npm run smoke`, this test **posts and later deletes two status cards** in the explicitly selected channel. Use a test server you control. It never changes Discord permissions or deletes unrelated messages. No destination IDs or credentials are hardcoded in the script.
+
+Stop all instances of this bot first, then run:
+
+```sh
+npm run smoke:channel -- --step prepare --guild YOUR_GUILD_ID --channel YOUR_CHANNEL_ID --data-dir .local/channel-test
+npm run smoke:channel -- --step verify --guild YOUR_GUILD_ID --channel YOUR_CHANNEL_ID --data-dir .local/channel-test
+```
+
+`prepare` requires an empty isolated data directory and creates a Turkish Java card and an English Bedrock card using real SDK data. The manifest records only the two test monitors. `verify` reloads them, edits the same messages, checks card components, exercises pause/resume and rejects duplicate and cross-guild access.
+
+For restart and button testing, run the normal bot with `DATA_DIR` pointing to that same test directory. For example, in PowerShell:
+
+```powershell
+$env:DATA_DIR = '.local/channel-test'
+npm start
+```
+
+Use the cards' buttons in Discord. Stop the bot before running `verify` again or cleaning up:
+
+```sh
+npm run smoke:channel -- --step cleanup --guild YOUR_GUILD_ID --channel YOUR_CHANNEL_ID --data-dir .local/channel-test
+```
+
+Cleanup validates the saved bot, guild, channel and message ownership, removes only the two recorded test monitors, then confirms Discord returns Unknown Message for each deleted card. The local manifest remains as test evidence. Do not point this workflow at a production data directory.
+
+### Live channel acceptance, 15 November 2026
+
+With explicit permission in an operator-provided test channel:
+
+- A real `/status` invocation returned a Turkish Java card as an ephemeral response.
+- Two persistent Java/Bedrock cards were posted with real `mcapitr` results, rendered icons, localized fields and three buttons.
+- The service updated those same message IDs, paused/resumed both monitors, rejected duplicate creation and rejected cross-guild lookup.
+- The production entrypoint was stopped and restarted with the isolated directory; both monitors were loaded and their original cards continued updating.
+- A real non-manager account received the private server-address response and used Refresh successfully. The actual interaction was acknowledged and the private success message was observed. Management commands were not visible to that account; its permissions were left unchanged.
+- Both test cards were removed afterward. Discord returned Unknown Message for their exact IDs, and the isolated monitor store was empty. No unrelated messages were removed.
+
+These checks do not claim a manual manager-command session, a real Minecraft server shutdown/recovery notification, or a live change to Discord channel permissions. Those paths remain covered by controlled automated tests and the acceptance checklist above.
