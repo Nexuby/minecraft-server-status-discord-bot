@@ -49,6 +49,7 @@ export function transition(m: Monitor, observation: Observation): { patch: Parti
     return { patch: { candidate: null, candidateCount: 0, candidateCheckedAt: null }, changed: null };
   }
   const { online, checkedAt } = observation.status;
+  if (m.candidateCheckedAt && Date.parse(checkedAt) < Date.parse(m.candidateCheckedAt)) return { patch: {}, changed: null };
   if (m.stable === null) return { patch: { stable: online, candidate: null, candidateCount: 0, candidateCheckedAt: checkedAt }, changed: null };
   if (online === m.stable) return { patch: { candidate: null, candidateCount: 0, candidateCheckedAt: checkedAt }, changed: null };
   if (checkedAt === m.candidateCheckedAt) return { patch: {}, changed: null };
