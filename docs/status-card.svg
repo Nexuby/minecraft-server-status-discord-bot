@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360" role="img" aria-labelledby="title desc">
+<title id="title">Minecraft server status Discord card layout</title>
+<desc id="desc">Illustration using example data: Survival server online, 42 of 100 players, Paper 1.21, 48 ms. Refresh and Server address buttons.</desc>
+<rect width="920" height="360" rx="16" fill="#1e1f22"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<circle cx="50" cy="47" r="20" fill="#123b30"/><path d="m41 55 4-17h5l-1 9 7-9h6l-7 17h-5l3-9-7 9z" fill="#27d79f"/>
+<text x="82" y="45" fill="#f2f3f5" font-size="16" font-weight="700">Minecraft Status</text><rect x="225" y="31" width="35" height="18" rx="4" fill="#5865f2"/><text x="231" y="44" fill="white" font-size="11">APP</text>
+<rect x="82" y="65" width="750" height="221" rx="5" fill="#2b2d31"/><path d="M86 65h1v221h-1a4 4 0 0 1-4-4V69a4 4 0 0 1 4-4" fill="#10b981"/>
+<text x="103" y="91" fill="#b5bac1" font-size="12">Java Edition</text>
+<text x="103" y="117" fill="#f2f3f5" font-size="20" font-weight="700">Survival</text>
+<text x="103" y="142" fill="#f2f3f5" font-size="14" font-weight="700">Online</text>
+<rect x="103" y="150" width="180" height="21" rx="3" fill="#1e1f22"/><text x="109" y="165" fill="#dbdee1" font-family="monospace" font-size="13">play.example.net</text>
+<text x="103" y="194" fill="#dbdee1" font-size="14">A new world. Your next adventure.</text>
+<g font-size="12" fill="#b5bac1"><text x="103" y="221">Players</text><text x="322" y="221">Version</text><text x="540" y="221">Latency</text></g>
+<g font-size="15" fill="#f2f3f5"><text x="103" y="243" font-weight="700">42 / 100</text><text x="322" y="243">Paper 1.21</text><text x="540" y="243">48 ms</text></g>
+<text x="103" y="272" fill="#949ba4" font-size="11">Powered by MCAPI.TR · Example data</text>
+<rect x="82" y="298" width="91" height="32" rx="4" fill="#4e5058"/><text x="103" y="319" fill="#f2f3f5" font-size="13">Refresh</text>
+<rect x="181" y="298" width="136" height="32" rx="4" fill="#4e5058"/><text x="199" y="319" fill="#f2f3f5" font-size="13">Server address</text>
+<rect x="325" y="298" width="104" height="32" rx="4" fill="#4e5058"/><text x="341" y="319" fill="#f2f3f5" font-size="13">MCAPI.TR ↗</text>
+</g></svg>

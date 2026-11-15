@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible problem (never include tokens or .env files).
+body:
+  - type: markdown
+    attributes:
+      value: Never paste your Discord token, .env file or private server data. Redact screenshots and logs.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Node version, operating system and bot version
+    validations:
+      required: true
