@@ -15,8 +15,8 @@
     "check": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "format": "prettier --write src tests docs README.md README.tr.md *.json *.yml",
-    "format:check": "prettier --check src tests docs README.md README.tr.md *.json *.yml",
+    "format": "prettier --write src tests docs scripts .github README.md README.tr.md CONTRIBUTING.md SECURITY.md *.json *.yml",
+    "format:check": "prettier --check src tests docs scripts .github README.md README.tr.md CONTRIBUTING.md SECURITY.md *.json *.yml",
     "verify": "npm run check && npm test && npm run build",
     "smoke": "tsx scripts/smoke.ts",
     "secrets:check": "node scripts/check-secrets.mjs"
