@@ -50,14 +50,12 @@ function setup(command = 'status', strings: Record<string, string> = {}, button?
   };
   const client = {
     channels: {
-      fetch: vi
-        .fn()
-        .mockResolvedValue({
-          guildId: m.guildId,
-          type: 0,
-          guild: { members: { me: {} } },
-          permissionsFor: () => ({ has: () => true }),
-        }),
+      fetch: vi.fn().mockResolvedValue({
+        guildId: m.guildId,
+        type: 0,
+        guild: { members: { me: {} } },
+        permissionsFor: () => ({ has: () => true }),
+      }),
     },
   };
   const run = createHandler(
